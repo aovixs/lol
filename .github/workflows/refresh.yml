@@ -1,0 +1,13 @@
+name: Auto Refresh IPTV Tokens
+on:
+  schedule:
+    - cron: '0 * * * *' # Runs every hour
+  workflow_dispatch: # Allows you to run it manually from the Actions tab
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Token Script
+        run: |
+          curl -s http://5.34.178.190/MASTER/Fifa+/token.php
+          curl -s http://5.34.178.190/MASTER/CEBL/token.php
